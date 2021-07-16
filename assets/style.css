@@ -1,0 +1,21 @@
+body {
+    height: 100vh;
+}
+
+#weatherCard {
+    margin-top: 10%;
+}
+
+.stretchHeight {
+    height: 100vh;
+}
+
+.searchBlock {
+    height: 95vh;
+}
+
+#fiveDayForecast {
+    background-image: url(./images/weatherbg2.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
