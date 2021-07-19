@@ -8,90 +8,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Weather Forecast</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper yellow darken-2 z-depth-3">
-            <a href="#" class="brand-logo">What's the weather?</a>
+            <a href="#" class="brand-logo">Weather Dashboard</a>
         </div>
     </nav>
     <div class="row">
-        <div class="col s12 teal darken-2 z-depth-5 scale-transition stretchHeight" id="landingPage">
+        <div class="col s12 teal darken-2 scale-transition stretchHeight" id="landingPage">
             <div class="col s12">
                 <div class="card blue-grey darken-1 searchBlock center-align">
                     <div class="card-content white-text">
-                        <span class="card-title">Enter a city to find out the weather!</span>
-                        <div class="row">
+                        <span class="card-title searchCard"><strong>Enter a city to find out the weather!</strong></span>
+                        <div class="row searchCard">
                             <form class="col s12">
-                              <div class="row">
-                                <div class="input-field col s12">
-                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                  <label for="textarea1">Enter a city!</label>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                        <label for="textarea1">Enter a city!</label>
+                                    </div>
+                                    <div class="col s12">
+                                        <a class="waves-effect waves-light btn-large" id="searchButton"><i
+                                                class="material-icons right">location_city</i>Search</a>
+                                    </div>
+                                    <div class="col s12">
+                                        <ul class="collection with-header hide" id="recentSearches">
+                                            <li class="collection-header yellow darken-2">
+                                                <h4>Recently Searched:</h4>
+                                                <a href="#!" class="collection-item waves-effect waves-light teal black-text hide" id="search0"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search1"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search2"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search3"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search4"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search5"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search6"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search7"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search8"></a>
+                                                <a href="#!" class="collection-item hide waves-effect waves-light teal black-text" id="search9"></a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col s12">
-                                    <a class="waves-effect waves-light btn-large" id="searchButton"><i class="material-icons right">location_city</i>Search</a>
-                                </div>
-                                <div class="col s12">
-                                    <ul class="collection with-header" id="recentSearches">
-                                        <li class="collection-header black-text yellow darken-2"><h4>Recently Searched:</h4></li>
-                                    </ul>
-                                </div>
-                              </div>
                             </form>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col s9 teal darken-2 center-align stretchHeight hide" id="fiveDayForecast">
-            <h1>Be my dad!</h1>
-            <div class="col s1"></div>
-            <div class="col s2 scale-transition scale-out" id="weatherCard">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Yey</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s2 scale-transition" id="weatherCard">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s2 scale-transition" id="weatherCard">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s2 scale-transition" id="weatherCard">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s2 scale-transition" id="weatherCard">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
+        <div class="col s9 teal darken-2 center-align stretchHeight">
+            <div class="col s10 offset-s1 mainCard scale-transition" id="todaysForecast"></div>
+            <div id="fiveDayForecast">
+
             </div>
         </div>
     </div>
@@ -100,7 +71,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="assets/fetch.js"></script>
     <script src="assets/script.js"></script>
 </body>
 
