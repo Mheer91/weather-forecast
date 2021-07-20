@@ -1,11 +1,3 @@
-body {
-    height: 100vh;
-}
-
-
-.stretchHeight {
-    height: 100vh;
-}
 
 .searchBlock {
     height: 90vh;
@@ -15,9 +7,3 @@ body {
 .searchCard {
     padding-top: 5%;
 }
-
-/* #fiveDayForecast {
-    background-image: url(./images/weatherbg2.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-} */

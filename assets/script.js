@@ -3,6 +3,7 @@ var fiveDayForecast = document.getElementById("fiveDayForecast");
 var todaysForecast = document.querySelector("#todaysForecast");
 var searchButton = document.getElementById("searchButton");
 var textArea = document.querySelector("textarea");
+var warningMessage = document.getElementById("warningMessage");
 var recentSearches = document.getElementById("recentSearches");
 const apiKey = 'a398120afa294e44852ef43b16bff5cf';
 
@@ -10,6 +11,7 @@ const apiKey = 'a398120afa294e44852ef43b16bff5cf';
 //This function transitions the page to the 5 day forecast layout and executes the search parameters for the API as well as executing the main functionality of the search list. 
 function search() {
     fiveDayForecast.innerHTML = "";
+    warningMessage.remove();
     landingPage.classList.remove("s12");
     landingPage.classList.add("s3");
     recentSearches.classList.remove("hide");
@@ -53,7 +55,14 @@ function cityLatLon() {
 
     fetch(requestUrl)
         .then(function (response) {
-            return response.json();
+
+            //This is in case someone tries to enter an invalid city name.
+            if (response.status >= 400) {
+                location.reload();
+            }
+            else {
+                return response.json();
+            }
         })
         .then(function (data) {
             console.log(data)
@@ -100,21 +109,21 @@ function getWeather() {
 
             let color = document.getElementById(`uvColorCurrent`);
 
-                    if (uvIndex < 3){
-                        color.classList.add("green");
-                    }
-                    else if ((uvIndex >= 3) && (uvIndex < 6)){
-                        color.classList.add("yellow");
-                    }
-                    else if ((uvIndex >= 6) && (uvIndex < 8)){
-                        color.classList.add("orange");
-                    }
-                    else if ((uvIndex >= 8) && (uvIndex < 11)){
-                        color.classList.add("red");
-                    }
-                    else {
-                        color.classList.add("purple");
-                    }
+            if (uvIndex < 3) {
+                color.classList.add("green");
+            }
+            else if ((uvIndex >= 3) && (uvIndex < 6)) {
+                color.classList.add("yellow");
+            }
+            else if ((uvIndex >= 6) && (uvIndex < 8)) {
+                color.classList.add("orange");
+            }
+            else if ((uvIndex >= 8) && (uvIndex < 11)) {
+                color.classList.add("red");
+            }
+            else {
+                color.classList.add("purple");
+            }
 
 
             //Weather Card generator. 
@@ -128,7 +137,7 @@ function getWeather() {
 
                 function addForecastCard() {
                     let forecastCard = document.createElement("DIV");
-                    forecastCard.classList.add("col", "s2", "scale-transition", "scale-in");
+                    forecastCard.classList.add("col", "s12","m6","l2");
                     forecastCard.setAttribute("id", `weatherCard${[i]}`)
                     forecastCard.innerHTML = `
                         <div class="card blue-grey darken-1">
